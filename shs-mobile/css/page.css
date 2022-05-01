@@ -1,0 +1,214 @@
+/* index css */
+.mainList{
+    padding: 0.75em 0;
+}
+.mainList .container{
+    padding: 0;
+}
+.mainList .paginationWrap{
+    position: absolute;
+    width: 100%;
+    bottom: 0.75em;
+}
+.mainList .listWrap{
+    margin-bottom: 1.5em;
+}
+/* index css fin */
+
+/* login css */
+.login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.login .logoWrap{
+    text-align: center;
+    margin-bottom: 3em;
+}
+.login .logoWrap .imgWrap{
+    margin-bottom: 0.75em;
+}
+.formWrap .inputWrap{
+    margin-bottom: 1.5em;
+}
+/* login css fin */
+
+/* newEstimate css */
+.newformList{
+    padding: 1.5em 0;
+}
+.newformList .formWrap .row{
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+    margin-bottom: 0.75em;
+}
+.newformList .formWrap .row label{
+    padding-left: 0;
+    padding-right: 0;
+    color: #666;
+}
+.newformList .formWrap .row > div{
+    padding-right: 0;
+    padding-left: 0;
+}
+.newformList .formWrap .row .form-checkWrap{
+    padding-top: calc(.375rem + 1px);
+}
+.newformList .formWrap .row .form-check label{
+    color: #000;
+    font-size: 0.88em;
+}
+.newformList .formWrap .row .form-select{
+    width: 83.33333333%;
+}
+.newformList .formWrap .row.submitWrap{
+    position: absolute;
+    bottom: 3em;
+    padding-right: 0.75em;
+    padding-left: 0.75em;
+    left: 0;
+}
+/* newEstimate css fin */
+
+/* customerMain css */
+.customerInfo{
+    padding: 1.5em 0;
+}
+.customerInfo .container{
+    padding: 0;
+}
+.customerInfo .listWrap .row{
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+}
+.customerInfo .listWrap .list-group-item{
+    border-bottom: none !important;
+}
+.customerInfo .listWrap .row > div{
+    padding-right: 0;
+    padding-left: 0;
+    font-size: 0.88em;
+}
+.customerInfo .listWrap .row .sub{
+    color: #666;
+}
+.customerInfo .listWrap .row .cont{
+    color: #000;
+}
+.customerInfo .listWrap .row .cont.list-opt > div{
+    margin-bottom: 0.25rem;
+}
+.customerInfo .listWrap .row .list-Phone a{
+    text-decoration: underline;
+}
+
+.customerCard{
+    background-color: #F2F2F2;
+}
+.customerCard .container{
+    padding: 0.75em;
+}
+.customerCard .row{
+    margin: 0;
+}
+.customerCard .cardWrap{
+    background-color: #fff;
+    padding: 0.75em 0;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 2px 5px;
+    border-radius: 0.25em;
+}
+.customerCard .cardWrap:first-child{
+    margin-right: 0.75em;
+}
+.customerCard .cardWrap .card-sub{
+    color: #666;
+    font-size: 0.75em;
+}
+.customerCard .cardWrap .card-value{
+    color: #007BFF;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.customerCont{
+    padding: 0.75em 0;
+}
+.customerCont .container{
+    padding: 0;
+}
+.customerCont .listWrap li.list-group-item{
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid #E5E5E5;
+    padding-bottom: 0.75em;
+}
+.customerCont .listWrap li.list-group-item h5.list-title{
+    font-size: 1em;
+    margin: 0;
+}
+.customerCont .listWrap li.list-group-item .list-btn{
+    vertical-align: top;
+}
+.customerCont .listWrap li.list-group-item .list-btn-right .btn{
+    padding: 0;
+}
+.customerCont .listWrap li.list-group-item .contWrap .table{
+    margin-top: 0.75em;
+}
+.customerCont .listWrap li.list-group-item .contWrap .table thead tr th{
+    font-size: 0.63em; font-weight: 400;
+    color: #666; line-height: 2;
+}
+.customerCont .listWrap li.list-group-item .contWrap .table .list-product-name{
+    max-width: 15em;
+}
+.customerCont .listWrap li.list-group-item .contWrap .table tbody tr:not(:last-child) td{
+    padding-bottom: 0.25em;
+}
+
+.customerModal .modal-header{
+    padding: 0.75em;
+}
+.customerModal .modal-header .modal-title{
+    font-size: 1em;
+}
+.customerModal .modal-header .modal-title b{
+    color: #000;
+    font-weight: 600;
+}
+.customerModal .modal-header .modal-title div{
+    display: inline-block;
+    color: #666;
+    font-weight: 400;
+}
+.customerModal .modal-body{
+    padding: 1.5rem 0.75em;
+}
+.customerModal .modal-body .formWrap form > div:not(:last-child){
+    margin-bottom: 0.75em;
+}
+.customerModal .modal-body .formWrap form div.row label{
+    color: #666;
+    font-size: 0.88em;
+}
+.customerModal .modal-body .formWrap form div.row .col-1{
+    padding: 0; margin: auto 0;
+    color: #666;
+    font-size: 0.88em;
+}
+.customerModal .modal-body .priceWrap .sub{
+    color: #666;
+    font-size: 0.88em;
+}
+.customerModal .modal-body .priceWrap .modal-product-price{
+    text-align: right; color: #007BFF;
+    font-size: 1em; font-weight: 600;
+}
+.customerModal .modal-footer{
+    justify-content: center;
+}
+/* customerMain css fin */

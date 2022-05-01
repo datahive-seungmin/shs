@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap');
+@import url('global.css');
+@import url('page.css');
+
+/* font css */
+body{
+    color: #000000;
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6{
+    font-weight: 600;
+}
+/* font css fin */
+
+/* container css */
+.container{
+    padding: 0 0.75em;
+}
+/* container css fin */
+
+/* pagination css */
+.page-link{
+    border: none;
+    color: #D7D7D7;
+}
+.page-link.active{
+    color: #007BFF;
+}
+.page-link:hover{
+    background-color: transparent;
+    border: none;
+    color: #D7D7D7;
+}
+/* pagination css fin */
+
+/* list css */
+.list-group-item{
+    margin-bottom: 0.75em;
+    padding: 0 0.75em;
+    border-bottom: 1px solid #E5E5E5;
+    border-top: 0;
+}
+.list-group-flush:last-child .list-group-item:last-child{
+    margin-bottom: -1px;
+    border-bottom: 1px solid #E5E5E5;
+}
+.list-group-item .table .list-name,
+.list-group-item .table .list-date{
+    color: #666;
+}
+.list-group-item .table .list-date{
+    font-size: 0.5em;
+    vertical-align: middle;
+}
+/* list css fin */
+
+/* table css */
+.table{
+    margin-bottom: 0.75em;
+}
+.table td, .table th{
+    margin: 0; padding: 0;
+}
+.table td{
+    font-size: 0.75em;
+    letter-spacing: -0.05em;
+}
+.table td:not(:last-child){
+    padding-right: 0.5em;
+}
+/* table css fin */
+
+/* pagination css */
+.pagination{
+    justify-content: center;
+}
+/* pagination css fin */
+
+/* form css */
+.form-control{
+    border: 1px solid #e5e5e5;
+    font-size: 0.88rem;
+    padding: 0.5rem 0.75rem;
+    color: #000000;
+}
+.formWrap .submitWrap{
+    margin: 0;
+}
+.formWrap .form-select{
+    border-color: #e5e5e5;
+    border-radius: 0.25em;
+    font-size: 0.88rem;
+    padding: 0.5rem 0.75rem;
+}
+.form-check{
+    margin-bottom: 0.5em;
+}
+/* form css fin */
+
+/* icon */
+.ico{
+    display: block;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 1.5em;
+    height: 1.5em;
+}
+.i-plus{
+    background-image: url("../images/ui/ico-essential-add.svg");
+}
+.i-chevronLeft{
+    background-image: url("../images/ui/ico-essential-ChevronLeft.svg");
+}
+.i-add{
+    background-image: url("../images/ui/ico-essential-add.svg");
+}
+.i-delete{
+    background-image: url("../images/ui/btn-delete.svg");
+}
+.ico-pagination-left{
+    background-image: url("../images/ui/ico-pagination-left.svg");
+}
+.ico-pagination-right{
+    background-image: url("../images/ui/ico-pagination-right.svg");
+}
+/* icon fin */

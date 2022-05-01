@@ -1,0 +1,33 @@
+/* header css */
+header{
+    height: 3.13em;
+}
+.navbar{
+    z-index: 1000; position: fixed; width: 100%; padding: 0.75em;
+}
+.navLogo{
+    margin: 0; padding: 0; font-size: 1em;
+}
+.navbar .container{
+    padding: 0; margin: 0;
+}
+.header-btn-right .btn,
+.header-btn-left .btn{
+    padding: 0; margin: 0; border: none;
+}
+/* header css fin */
+
+@media (max-width: 767px){
+    .navbar{
+        background-color: #fff; box-shadow: rgba(0, 0, 0, 0.05) 0px 10px 20px;
+    }
+    .navLogo a{
+        vertical-align: middle; width: 100%;
+    }
+    .navLogo a img{
+        width: 100%; 
+    }
+    .navbar-toggler{
+        padding: 0;
+    }
+}
