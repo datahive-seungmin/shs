@@ -21,7 +21,7 @@ if (isset($_GET['search'])) {
 $sql = "select * from shs_admin_estimate where test like '%$search%'";
 $result = mysqli_query($con, $sql);
 $row_num = mysqli_num_rows($result); //게시판 총 레코드 수
-$list = 3; //한 페이지에 보여줄 개수
+$list = 20; //한 페이지에 보여줄 개수
 $block_ct = 3; //블록당 보여줄 페이지 개수
 
 $block_num = ceil($page / $block_ct); // 현재 페이지 블록 구하기
@@ -33,7 +33,7 @@ if ($block_end > $total_page) $block_end = $total_page; //만약 블록의 마�
 $total_block = ceil($total_page / $block_ct); //블럭 총 개수
 $start_num = ($page - 1) * $list; //시작번호 (page-1)에서 $list를 곱한다.
 
-$sql2 = "select * from shs_admin_estimate where test like '%$search%' order by idx desc limit $start_num, $list";
+$sql2 = "select @ROWNUM := @ROWNUM + 1 AS rn, E.* from shs_admin_estimate E, (SELECT @ROWNUM := 0 ) TMP where test like '%$search%' ORDER BY wr_datetime DESC limit $start_num, $list";
 $result = mysqli_query($con, $sql2);
 
 ?>
@@ -111,7 +111,7 @@ $result = mysqli_query($con, $sql2);
         }
 
 
-        #logout  {
+        #logout {
             width: 10%;
             border: 1px solid #bbb;
             border-radius: 8px;
@@ -119,7 +119,7 @@ $result = mysqli_query($con, $sql2);
             font-size: 14px;
         }
 
-        #search  {
+        #search {
             width: 100%;
             border: 1px solid #bbb;
             border-radius: 8px;
@@ -180,7 +180,7 @@ $result = mysqli_query($con, $sql2);
             </nav>
             <div class="shs">
                 <div class="container-fluid">
-                    
+
                     <input type="hidden" id="page" name="page" value="1">
                     <div class="search">
                         <input type="text" id="search" name="search" placeholder="search" value="">
@@ -192,12 +192,12 @@ $result = mysqli_query($con, $sql2);
                                 <table class="table table-hover">
                                     <thead>
                                         <tr>
-                                            <th>번 호</th>
-                                            <th>제목</th>
-                                            <th>댓글수</th>
-                                            <th>등록자</th>
-                                            <th>조회수</th>
-                                            <th>등록일시</th>
+                                            <th></th>
+                                            <th>이름</th>
+                                            <th>전화번호</th>
+                                            <th>주소</th>
+                                            <th>날짜</th>
+                                            <th></th>
                                     </thead>
 
                                     <?php
@@ -208,18 +208,28 @@ $result = mysqli_query($con, $sql2);
 
                                         <?php
                                     } else {
-                                        $sql = "SELECT * FROM shs_admin";
+                                        //$sql = "SELECT * FROM shs_admin_estimate ORDER BY wr_datetime DESC";
                                         $result = mysqli_query($con, $sql2);
                                         while ($row = mysqli_fetch_array($result)) {
                                             $row = array(
                                                 'idx' => ($row['idx']),
+                                                'name' => ($row['name']),
+                                                'rn' => ($row['rn']),
+                                                'tel' => ($row['tel']),
                                                 'test' => ($row['test']),
+                                                'wr_datetime' => ($row['wr_datetime'])
                                             );
+                                            $timestamp = strtotime($row['wr_datetime']);
+                                            $newDate = date("Y-m-d", $timestamp);
                                         ?>
                                             <tbody>
-                                                <tr style="cursor:pointer;" onClick=" location.href='read.php?id=<?= $row['idx'] ?>'">
-                                                    <th><?= $row['idx'] ?></th>
+                                                <tr>
+                                                    <th><?= $row['rn'] ?></th>
+                                                    <th><?= $row['name'] ?></th>
+                                                    <th><?= $row['tel'] ?></th>
                                                     <th><?= $row['test'] ?></th>
+                                                    <th><?= $newDate ?></th>
+                                                    <th><button type="button" id="estimate" onClick="location.href='read.php?id=<?= $row['idx'] ?>'">견적서 보기</button></th>
                                                 </tr>
                                             <?php
                                         }
@@ -245,9 +255,9 @@ $result = mysqli_query($con, $sql2);
                                         for ($i = $block_start; $i <= $block_end; $i++) {
                                             //for문 반복문을 사용하여, 초기값을 블록의 시작번호를 조건으로 블록시작번호가 마지박블록보다 작거나 같을 때까지 $i를 반복시킨다
                                             if ($page == $i) { //만약 page가 $i와 같다면 
-                                                echo "<li class='fo_re'>[$i]</li>"; //현재 페이지에 해당하는 번호에 굵은 빨간색을 적용한다
+                                                echo "<li class='fo_re'>$i</li>"; //현재 페이지에 해당하는 번호에 굵은 빨간색을 적용한다
                                             } else {
-                                                echo "<li><a href='?page=$i&search=$search'>[$i]</a></li>"; //아니라면 $i
+                                                echo "<li><a href='?page=$i&search=$search'>$i</a></li>"; //아니라면 $i
                                             }
                                         }
                                         if ($block_num >= $total_block) { //만약 현재 블록이 블록 총개수보다 크거나 같다면 빈 값

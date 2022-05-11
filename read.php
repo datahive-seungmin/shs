@@ -1,7 +1,11 @@
 <?php
 $con = mysqli_connect("13.125.248.43", "datahive", "Mobile1!", "shs");
-$sql = "SELECT * FROM shs_admin";
-$result = mysqli_query($con, $sql);
+$idx = $_GET['id'];
+
+$sql = "SELECT * FROM shs_admin_estimate WHERE idx = $idx";
+
+$ex_query = mysqli_query($con, $sql);
+$result = mysqli_fetch_assoc($ex_query);
 require_once("inc_head.php");
 ?>
 <style>
@@ -75,8 +79,7 @@ require_once("inc_head.php");
         // XLSX.writeFile(wb, ('shs.xlsx'));
         $(document).ready(function() {
             $(document).on("click", "button[name='excelDownload']", function() {
-
-                exportExcel();
+                exportExcel();               
             });
         });
 
@@ -143,15 +146,15 @@ require_once("inc_head.php");
 
                 <th scope="row">이름</th>
 
-                <td></td>
+                <td><?= $result['name'] ?></td>
 
                 <th scope="row">주소</td>
 
-                <td></td>
+                <td><?= $result['test'] ?></td>
 
                 <th scope="row">전화번호</td>
 
-                <td></td>
+                <td><?= $result['tel'] ?></td>
 
             </tr>
 
@@ -161,7 +164,7 @@ require_once("inc_head.php");
                 <td></td>
                 <th scope="row">방문조사자</td>
 
-                <td>김영희</td>
+                <td></td>
 
                 <td>123</td>
                 <td>12345</td>
@@ -172,7 +175,6 @@ require_once("inc_head.php");
         <div class="container-fluid">
             <div class="shsTable">
                 <div class="col-xs-12 col-sm-12 col-md-12">
-                    <form action="read.php" method="POST">
                         <table class="table table-hover">
 
                             <thead>
@@ -191,21 +193,21 @@ require_once("inc_head.php");
 
                             <?php
 
-                            $sql = "SELECT * FROM shs_admin";
+                            //$sql = "SELECT * FROM shs_admin";
                             $result = mysqli_query($con, $sql);
                             while ($row = mysqli_fetch_array($result)) {
                                 $row = array(
                                     'idx' => ($row['idx']),
-                                    'admin_id' => ($row['admin_id']),
-                                    'admin_password' => ($row['admin_password'])
+                                    'tel' => ($row['tel']),
+                                    'test' => ($row['test'])
                                 );
                             ?>
                                 <tbody>
 
                                     <tr style="cursor:pointer;" onClick=" location.href='http://www.naver.com' " onMouseOver="window.status = 'http://ihouse.so.vc' " onMouseOut="window.status = '' ">
                                         <th><?= $row['idx'] ?></th>
-                                        <th><?= $row['admin_id'] ?></th>
-                                        <th><?= $row['admin_password'] ?></th>
+                                        <th><?= $row['test'] ?></th>
+                                        <th><?= $row['tel'] ?></th>
                                     </tr>
 
                                 <?php
