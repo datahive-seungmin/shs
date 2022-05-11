@@ -136,7 +136,7 @@ require_once("inc_head.php");
 
     <nav class="nav nav-list">
         <ul class="menu">
-            <li><a href="/estimate.php">견적서 보기</a></li>
+            <li><a href="estimate.php">견적서 보기</a></li>
         </ul>
     </nav>
 
